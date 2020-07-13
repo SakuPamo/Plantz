@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.saku.plantz">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/plantz_icon_foreground"
@@ -9,6 +11,7 @@
         android:roundIcon="@mipmap/plantz_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,10 +21,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".LoginActivity"
-            >
-
-        </activity>
+            android:parentActivityName=".LoginActivity"></activity>
     </application>
 
 </manifest>

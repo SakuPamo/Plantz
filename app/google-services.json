@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "835992083472",
+    "firebase_url": "https://plantz-19513.firebaseio.com",
+    "project_id": "plantz-19513",
+    "storage_bucket": "plantz-19513.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835992083472:android:6fdb4ec73c17809a3efe95",
+        "android_client_info": {
+          "package_name": "com.saku.plantz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835992083472-9ro1qgem2h6pcnb958o8l7dg5aeqmjul.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk6l737Xndyz7PcJ7mdhclVLspHYEXL9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835992083472-9ro1qgem2h6pcnb958o8l7dg5aeqmjul.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
