@@ -40,7 +40,7 @@
         tools:text="@string/app_name" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
+        android:id="@+id/textInputLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -60,6 +60,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageText">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lgn_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/textOutline"
@@ -69,7 +70,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
+        android:id="@+id/textInputLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -86,11 +87,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout1"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/textOutline">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lgn_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -114,12 +116,13 @@
         android:textColor="@color/colorBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/gotoSignUp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="@string/signup_phrase"
         app:layout_constraintTop_toBottomOf="@id/lgnBtn" />
 
