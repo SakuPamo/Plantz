@@ -11,6 +11,7 @@
         android:id="@+id/bottomNavPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:menu="@menu/bottum_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -28,12 +29,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavPanel">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:srcCompat="@drawable/floating_add" />
     </FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/floatingActionButton"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavPanel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/floating_add" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

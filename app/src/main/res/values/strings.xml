@@ -10,5 +10,8 @@
     <string name="menu_home_button">Home</string>
     <string name="menu_notification_button">Notification</string>
     <string name="menu_profile_button">Profile</string>
-    <string name="fragment_sample">Fragment</string>
+    <string name="fragment_home">Fragment home</string>
+    <string name="fragment_notification">Fragment notification</string>
+    <string name="fragment_profile">Fragment profile</string>
+    <string name="sign_out">Sign out</string>
 </resources>

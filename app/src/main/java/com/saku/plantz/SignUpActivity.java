@@ -60,7 +60,9 @@ public class SignUpActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this,"Authentication faild" + task.getException(),Toast.LENGTH_LONG).show();
                         } else {
-                            startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
+                            Intent intent= new Intent(SignUpActivity.this,LoginActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                             finish();
                         }
                     }

@@ -11,17 +11,25 @@
         android:roundIcon="@mipmap/plantz_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".LoginActivity">
+
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".SplashScreenActivity"/>
+
+        <activity android:name=".SignUpActivity" />
+
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".LoginActivity"></activity>
+            android:parentActivityName=".LoginActivity" />
+
     </application>
 
 </manifest>
