@@ -2,17 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/bottum_action_home"
+        android:id="@+id/bottom_action_home"
         android:icon="@drawable/menu_home_button"
         android:title="@string/menu_home_button" />
 
     <item
-        android:id="@+id/bottum_action_notification"
-        android:title="@string/menu_notification_button"
-        android:icon="@drawable/menu_notification_button" />
+        android:id="@+id/bottom_action_add"
+        android:title="@string/menu_addPlant_button"
+        android:icon="@drawable/button_add" />
 
     <item
-        android:id="@+id/bottum_action_profile"
+        android:id="@+id/bottom_action_favourite"
+        android:title="@string/menu_favourite_button"
+        android:icon="@drawable/menu_button_favourite" />
+
+    <item
+        android:id="@+id/bottom_action_profile"
         android:icon="@drawable/menu_profile_button"
         android:title="@string/menu_profile_button" />
 

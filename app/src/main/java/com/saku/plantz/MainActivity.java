@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
-import com.google.android.material.bottomnavigation.BottomNavigationMenu;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.saku.plantz.Fragments.HomeFragment;
@@ -41,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
 
-                    case R.id.bottum_action_home:
+                    case R.id.bottom_action_home:
                         replaceFragment(homeFragment);
                         return true;
 
-                    case R.id.bottum_action_notification:
+                    case R.id.bottom_action_favourite:
                         replaceFragment(notificationFragment);
                         return true;
 
-                    case R.id.bottum_action_profile:
+                    case R.id.bottom_action_profile:
                         replaceFragment(profileFragment);
                         return true;
 
