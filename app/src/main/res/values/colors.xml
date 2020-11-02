@@ -7,5 +7,6 @@
     <color name="colorBackground">#1F9532</color>
     <color name="textOutline">#ffffff</color>
     <color name="floatingActionButton">#1F9532</color>
+    <color name="plantAddBackground">#ffffff</color>
     <color name="new_color">#951818</color>
 </resources>
