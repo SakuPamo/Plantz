@@ -3,9 +3,11 @@ package com.saku.plantz.Fragments;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.saku.plantz.R;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.saku.plantz.R;
 
 import java.util.Random;
 

@@ -1,20 +1,18 @@
 package com.saku.plantz;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.saku.plantz.Fragments.HomeFragment;
-import com.saku.plantz.Fragments.NotificationFragment;
 import com.saku.plantz.Fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton addNewPlant;
     private BottomNavigationView bottomNavigationMenuView;
     private HomeFragment homeFragment;
-    private NotificationFragment notificationFragment;
     private ProfileFragment profileFragment;
 
     @Override
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         homeFragment = new HomeFragment();
-        notificationFragment = new NotificationFragment();
         profileFragment = new ProfileFragment();
 
         replaceFragment(homeFragment);
@@ -54,10 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.bottom_action_home:
                         replaceFragment(homeFragment);
-                        return true;
-
-                    case R.id.bottom_action_favourite:
-                        replaceFragment(notificationFragment);
                         return true;
 
                     case R.id.bottom_action_profile:

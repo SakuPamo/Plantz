@@ -1,24 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/plantAddBackground"
+    android:padding="8dp"
     tools:context=".Fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/fragment_profile" />
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <Button
-        android:id="@+id/signOut_button"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@color/colorBackground"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="117dp"
+                android:layout_height="103dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/bg_image" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:text="username"
+                android:textColor="@color/colorBackground"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView9"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="200dp"-->
+<!--                android:text="Gender"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/radioButton2"-->
+<!--                android:layout_marginTop="220dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Male" />-->
+<!--            <RadioButton-->
+<!--                android:id="@+id/radioButton3"-->
+<!--                android:layout_marginTop="220dp"-->
+<!--                android:layout_marginLeft="140dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Female" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/radioButton4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="270dp"-->
+<!--                android:layout_marginTop="220dp"-->
+<!--                android:text="Other" />-->
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sign_out" />
+        android:layout_marginTop="400dp">
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_edit_profile"
+            android:text="Edit Profile"
+            android:textColor="@color/textOutline"
+            android:layout_marginTop="10dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_edit_profile"
+            android:id="@+id/btn_logout"
+            android:text="Logout"
+            android:textColor="@color/textOutline"
+            android:layout_marginTop="10dp"
+            />
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
