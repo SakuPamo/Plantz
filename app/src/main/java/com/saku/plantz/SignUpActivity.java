@@ -68,7 +68,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    private void register(final String username, String email, String password){
+    private void register(final String username, final String email, String password){
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -84,6 +84,7 @@ public class SignUpActivity extends AppCompatActivity {
                             HashMap<String, String> hashMap = new HashMap<>();
                             hashMap.put("id", userid);
                             hashMap.put("username", username);
+                            hashMap.put("email", email);
                             hashMap.put("imageUrl", "default");
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
