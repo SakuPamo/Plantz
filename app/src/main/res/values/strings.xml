@@ -15,4 +15,6 @@
     <string name="fragment_notification">Fragment notification</string>
     <string name="fragment_profile">Fragment profile</string>
     <string name="sign_out">Sign out</string>
+    <string name="sifi_name">Scientific Name : </string>
+    <string name="family">Family : </string>
 </resources>
