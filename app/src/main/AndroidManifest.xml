@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/plantz_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddPlantActivity"></activity>
+        <activity android:name=".EditProfile"></activity>
+        <activity android:name=".AddPlantActivity" />
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".SplashScreenActivity" />
