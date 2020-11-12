@@ -91,6 +91,7 @@ public class AddPlantActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void openImage() {
@@ -168,7 +169,7 @@ public class AddPlantActivity extends AppCompatActivity {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("addId", userid);
+        hashMap.put("add_Id", plantPushID);
         hashMap.put("plantName", plant_name);
         hashMap.put("sciName", sciName);
         hashMap.put("family", family);
@@ -181,6 +182,7 @@ public class AddPlantActivity extends AppCompatActivity {
         reference.child("Plants").child(plantPushID).updateChildren(hashMap).addOnCompleteListener((task) -> {
             if (task.isSuccessful()) {
                 Toast.makeText(AddPlantActivity.this, "Plant add Successfull!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AddPlantActivity.this, MainActivity.class));
             } else {
                 Toast.makeText(AddPlantActivity.this, "Error!", Toast.LENGTH_SHORT).show();
             }

@@ -10,8 +10,9 @@ public class Plant {
     private String height;
     private String spred;
     private String floweringPeriod;
+    private String plantImageUrl;
 
-    public Plant(String id, String plantName, String scientificName, String family, String genus, String height, String spred, String floweringPeriod) {
+    public Plant(String id, String plantName, String scientificName, String family, String genus, String height, String spred, String floweringPeriod, String plantImageUrl) {
         this.id = id;
         this.plantName = plantName;
         this.scientificName = scientificName;
@@ -20,6 +21,7 @@ public class Plant {
         this.height = height;
         this.spred = spred;
         this.floweringPeriod = floweringPeriod;
+        this.plantImageUrl = plantImageUrl;
     }
 
     public Plant() {
@@ -87,5 +89,13 @@ public class Plant {
 
     public void setFloweringPeriod(String floweringPeriod) {
         this.floweringPeriod = floweringPeriod;
+    }
+
+    public String getPlantImageUrl() {
+        return plantImageUrl;
+    }
+
+    public void setPlantImageUrl(String plantImageUrl) {
+        this.plantImageUrl = plantImageUrl;
     }
 }
