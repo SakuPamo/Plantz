@@ -43,7 +43,7 @@ public class PlantViewAdapter extends RecyclerView.Adapter<PlantViewAdapter.View
         final Plant plantGetList = plantList.get(position);
         holder.plantName.setText(plantGetList.getPlantName());
         holder.familyName.setText(plantGetList.getFamily());
-        holder.sciName.setText(plantGetList.getScientificName());
+        holder.sciName.setText(plantGetList.getSciName());
         if(plantGetList.getPlantImageUrl().equals("default")){
             holder.plant_image.setImageResource(R.mipmap.ic_launcher);
         }else {
@@ -54,9 +54,7 @@ public class PlantViewAdapter extends RecyclerView.Adapter<PlantViewAdapter.View
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(mContext, PlantViewActivity.class);
-//                intent.putExtra("grpId", chatList.getId());
-//                intent.putExtra("displayName", chatList.getDisplayName());
-//                intent.putExtra("imageUrl", chatList.getThumbnail());
+                intent.putExtra("plantId", plantGetList.getAdd_Id());
                 mContext.startActivity(intent);
             }
         });

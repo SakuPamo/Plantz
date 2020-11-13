@@ -2,41 +2,41 @@ package com.saku.plantz.Model;
 
 public class Plant {
 
-    private String id;
+    private String add_Id;
     private String plantName;
-    private String scientificName;
+    private String sciName;
     private String family;
     private String genus;
     private String height;
-    private String spred;
-    private String floweringPeriod;
+    private String spread;
+    private String flow_period;
     private String plantImageUrl;
 
-    public Plant(String id, String plantName, String scientificName, String family, String genus, String height, String spred, String floweringPeriod, String plantImageUrl) {
-        this.id = id;
+    public Plant(String add_Id, String plantName, String sciName, String family, String genus, String height, String spread, String flow_period, String plantImageUrl) {
+        this.add_Id = add_Id;
         this.plantName = plantName;
-        this.scientificName = scientificName;
+        this.sciName = sciName;
         this.family = family;
         this.genus = genus;
         this.height = height;
-        this.spred = spred;
-        this.floweringPeriod = floweringPeriod;
+        this.spread = spread;
+        this.flow_period = flow_period;
         this.plantImageUrl = plantImageUrl;
     }
 
     public Plant() {
     }
 
-    public String getId() {
-        return id;
+    public String getAdd_Id() {
+        return add_Id;
     }
 
     public String getPlantName() {
         return plantName;
     }
 
-    public String getScientificName() {
-        return scientificName;
+    public String getSciName() {
+        return sciName;
     }
 
     public String getFamily() {
@@ -51,24 +51,28 @@ public class Plant {
         return height;
     }
 
-    public String getSpred() {
-        return spred;
+    public String getSpread() {
+        return spread;
     }
 
-    public String getFloweringPeriod() {
-        return floweringPeriod;
+    public String getFlow_period() {
+        return flow_period;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getPlantImageUrl() {
+        return plantImageUrl;
+    }
+
+    public void setAdd_Id(String add_Id) {
+        this.add_Id = add_Id;
     }
 
     public void setPlantName(String plantName) {
         this.plantName = plantName;
     }
 
-    public void setScientificName(String scientificName) {
-        this.scientificName = scientificName;
+    public void setSciName(String sciName) {
+        this.sciName = sciName;
     }
 
     public void setFamily(String family) {
@@ -83,16 +87,12 @@ public class Plant {
         this.height = height;
     }
 
-    public void setSpred(String spred) {
-        this.spred = spred;
+    public void setSpread(String spread) {
+        this.spread = spread;
     }
 
-    public void setFloweringPeriod(String floweringPeriod) {
-        this.floweringPeriod = floweringPeriod;
-    }
-
-    public String getPlantImageUrl() {
-        return plantImageUrl;
+    public void setFlow_period(String flow_period) {
+        this.flow_period = flow_period;
     }
 
     public void setPlantImageUrl(String plantImageUrl) {
