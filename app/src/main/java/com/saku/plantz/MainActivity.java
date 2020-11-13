@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationMenuView = findViewById(R.id.bottomNavPanel);
-        addNewPlant = findViewById(R.id.floatingActionButton);
+//        addNewPlant = findViewById(R.id.floatingActionButton);
 
-        addNewPlant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddPlantActivity.class);
-                startActivity(intent);
-            }
-        });
+//        addNewPlant.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, AddPlantActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         homeFragment = new HomeFragment();
         profileFragment = new ProfileFragment();
