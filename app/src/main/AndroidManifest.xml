@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.saku.plantz">
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -29,6 +30,8 @@
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustNothing"
             android:parentActivityName=".LoginActivity" />
+
+        <activity android:name=".Detection.CameraActivity" />
     </application>
 
 </manifest>

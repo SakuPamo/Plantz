@@ -22,6 +22,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //initialization
     MaterialEditText lgnEmail, lgnPassword;
     Button lgnButton;
     FirebaseAuth mAuth;
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //casting
         mAuth = FirebaseAuth.getInstance();
         lgnEmail = findViewById(R.id.email);
         lgnPassword = findViewById(R.id.password);

@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    //initialization
     FirebaseAuth mAuth;
     DatabaseReference reference;
     MaterialEditText emailField,usernameField,passwordField,confirmPassword;
@@ -36,6 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        //casting
         emailField = findViewById(R.id.sgn_email);
         usernameField = findViewById(R.id.username);
         passwordField = findViewById(R.id.sgn_password);
@@ -52,8 +54,9 @@ public class SignUpActivity extends AppCompatActivity {
                 String txt_password = passwordField.getText().toString();
                 String txt_copassword = confirmPassword.getText().toString();
 
+                //validation
                 if(TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password) || TextUtils.isEmpty(txt_copassword)){
-                    Toast.makeText(SignUpActivity.this,"All fileds are required",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this,"All fields are required",Toast.LENGTH_SHORT).show();
                 }else if(txt_password.length() < 6){
                     Toast.makeText(SignUpActivity.this,"Password must be at least 6 characters",Toast.LENGTH_SHORT).show();
                 } else if (!txt_password.equals(txt_copassword)) {
@@ -68,7 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    private void register(final String username, final String email, String password){
+    private void register(String username, String email, String password){
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

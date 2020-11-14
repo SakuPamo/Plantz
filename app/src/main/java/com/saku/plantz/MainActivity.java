@@ -12,6 +12,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.saku.plantz.Detection.CameraActivity;
+import com.saku.plantz.Fragments.FavouriteFragment;
 import com.saku.plantz.Fragments.HomeFragment;
 import com.saku.plantz.Fragments.ProfileFragment;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationMenuView;
     private HomeFragment homeFragment;
     private ProfileFragment profileFragment;
+    private FavouriteFragment favouriteFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         homeFragment = new HomeFragment();
         profileFragment = new ProfileFragment();
+        favouriteFragment = new FavouriteFragment();
 
         replaceFragment(homeFragment);
 
@@ -55,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bottom_action_profile:
                         replaceFragment(profileFragment);
                         return true;
+
+                    case R.id.bottom_action_favourite:
+                        replaceFragment(favouriteFragment);
+                        return true;
+
+                    case R.id.bottom_action_add:
+                        startActivity(new Intent(MainActivity.this, CameraActivity.class));
 
                     default:
                         return false;

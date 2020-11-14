@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.saku.plantz.Adapter.PlantViewAdapter;
+import com.saku.plantz.Model.Favourite;
 import com.saku.plantz.Model.Plant;
 import com.saku.plantz.R;
 
@@ -34,6 +35,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private List<Plant> plantList;
+    private List<Favourite> favouriteList;
     private RecyclerView recyclerView;
     private PlantViewAdapter plantAdapter;
     EditText search_users;
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         plantList = new ArrayList<>();
+        favouriteList = new ArrayList<>();
 
         readPlants();
 
@@ -98,7 +101,7 @@ public class HomeFragment extends Fragment {
                         plantList.add(plants);
 
                 }
-                plantAdapter = new PlantViewAdapter(getContext(), plantList);
+                plantAdapter = new PlantViewAdapter(getContext(), plantList, null);
                 recyclerView.setAdapter(plantAdapter);
 
             }
@@ -113,21 +116,44 @@ public class HomeFragment extends Fragment {
     private void readPlants() {
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Plants");
+        assert firebaseUser != null;
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("Favourite");
 
-        reference.addValueEventListener(new ValueEventListener() {
+        userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                plantList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Plant plants = snapshot.getValue(Plant.class);
+                favouriteList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (snapshot != null) {
+//                        Favourite favourite = snapshot.getValue(Favourite.class);
+//                        favouriteList.add(favourite);
+                        System.out.println("data snap shot ===> " + snapshot);
+                    }
 
-                    assert plants != null;
-                    assert firebaseUser != null;
-                    plantList.add(plants);
                 }
 
-                plantAdapter = new PlantViewAdapter(getContext(), plantList);
-                recyclerView.setAdapter(plantAdapter);
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        plantList.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            Plant plants = snapshot.getValue(Plant.class);
+
+                            assert plants != null;
+                            assert firebaseUser != null;
+                            plantList.add(plants);
+                        }
+
+                        plantAdapter = new PlantViewAdapter(getContext(), plantList, favouriteList);
+                        recyclerView.setAdapter(plantAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+                });
             }
 
             @Override
@@ -135,6 +161,8 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
     }
 
 }
