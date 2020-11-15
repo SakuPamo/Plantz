@@ -70,39 +70,45 @@ public class FavouriteFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 favouriteList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    assert snapshot != null;
                     Favourite favourite = snapshot.getValue(Favourite.class);
+                    favouriteList.add(favourite);
 
-                    reference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            plantList.clear();
-                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                Plant plants = snapshot.getValue(Plant.class);
+                }
+                System.out.println("fav List ===> " + favouriteList);
 
-                                assert plants != null;
-                                assert firebaseUser != null;
-                                if (plants.getAdd_Id().equals(favourite.getAdd_Id()) && favourite.getFlag().equals("1")){
-                                    plantList.add(plants);
-                                }
+            }
 
-                            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                plantList.clear();
+                for (Favourite addId : favouriteList) {
+                    for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
+                        Plant plants = snapshot1.getValue(Plant.class);
+
+                        assert plants != null;
+                        assert firebaseUser != null;
+                        if (plants.getAdd_Id().equals(addId.getAdd_Id()) && addId.getFlag().equals("1")) {
+                            plantList.add(plants);
+                        }
+
+                    }
+                }
 
 //                            favouriteViewAdapter = new FavouriteViewAdapter(getContext(), plantList);
 //                            recyclerView.setAdapter(favouriteViewAdapter);
-                            favouriteList.add(favourite);
+                plantAdapter = new PlantViewAdapter(getContext(), plantList, favouriteList);
+                recyclerView.setAdapter(plantAdapter);
 
-                            plantAdapter = new PlantViewAdapter(getContext(), plantList, favouriteList);
-                            recyclerView.setAdapter(plantAdapter);
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                }
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

@@ -14,16 +14,14 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-
-
         <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/email"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="260dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginTop="280dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
             app:met_floatingLabel="normal"
             android:hint="Email" />
 
@@ -33,8 +31,8 @@
             android:id="@+id/password"
             android:inputType="textPassword"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
             app:met_floatingLabel="normal"
             android:hint="Password"/>
 
@@ -45,25 +43,40 @@
             android:text="Sign In"
             android:background="@drawable/rounded_button"
             android:textColor="@color/textOutline"
+            android:backgroundTintMode="add"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
             />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="SignUp"
-            android:layout_marginTop="221dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginTop="290dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:id="@+id/gotoSignUp"
-            android:textColor="@color/colorBackground"/>
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Create account?  "
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:id="@+id/createAccount"
+                android:textColor="@color/colorPrimaryGray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=" SignUp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:id="@+id/gotoSignUp"
+                android:textColor="@color/colorBackground"/>
 
+        </LinearLayout>
 
 
     </LinearLayout>

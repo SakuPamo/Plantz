@@ -38,7 +38,7 @@
                     android:layout_height="37dp"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/unfavourite_button" />
+                    app:srcCompat="@drawable/fav_icn" />
                 <ImageView
                     android:id="@+id/faved_icn"
                     android:layout_width="35dp"
@@ -46,7 +46,7 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:visibility="gone"
-                    app:srcCompat="@drawable/unfavourite_button" />
+                    app:srcCompat="@drawable/faved_icn" />
 
                 <TextView
                     android:id="@+id/plant_name"

@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     DatabaseReference reference;
     MaterialEditText emailField,usernameField,passwordField,confirmPassword;
     Button signUpBtn;
+    TextView gotoSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +44,17 @@ public class SignUpActivity extends AppCompatActivity {
         usernameField = findViewById(R.id.username);
         passwordField = findViewById(R.id.sgn_password);
         confirmPassword = findViewById(R.id.sgn_cpassword);
+        gotoSignIn = findViewById(R.id.gotoSignIn);
         signUpBtn = findViewById(R.id.btn_signup);
 
         mAuth = FirebaseAuth.getInstance();
+
+        gotoSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+            }
+        });
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override

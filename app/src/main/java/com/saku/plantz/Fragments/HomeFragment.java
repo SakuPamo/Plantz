@@ -119,6 +119,29 @@ public class HomeFragment extends Fragment {
         assert firebaseUser != null;
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("Favourite");
 
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                plantList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Plant plants = snapshot.getValue(Plant.class);
+
+                    assert plants != null;
+                    assert firebaseUser != null;
+                    plantList.add(plants);
+                }
+
+                plantAdapter = new PlantViewAdapter(getContext(), plantList, favouriteList);
+                recyclerView.setAdapter(plantAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
+
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -132,28 +155,6 @@ public class HomeFragment extends Fragment {
 
                 }
 
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        plantList.clear();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                            Plant plants = snapshot.getValue(Plant.class);
-
-                            assert plants != null;
-                            assert firebaseUser != null;
-                            plantList.add(plants);
-                        }
-
-                        plantAdapter = new PlantViewAdapter(getContext(), plantList, favouriteList);
-                        recyclerView.setAdapter(plantAdapter);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-
-                });
             }
 
             @Override
