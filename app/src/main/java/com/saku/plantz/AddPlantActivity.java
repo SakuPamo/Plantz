@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,18 +22,25 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.saku.plantz.Model.Plant;
+import com.saku.plantz.Model.User;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
 public class AddPlantActivity extends AppCompatActivity {
 
+    private Context mContext;
     StorageReference storageReference;
     DatabaseReference reference;
     private Uri imageUri;
@@ -140,6 +148,7 @@ public class AddPlantActivity extends AppCompatActivity {
                             HashMap<String, Object> map = new HashMap<>();
                             map.put("plantImageUrl",mUri);
                             reference.child(plantPushID).updateChildren(map);
+                        Picasso.with(mContext).load(mUri).into(plantImage);
 
                         pd.dismiss();
                     }else{

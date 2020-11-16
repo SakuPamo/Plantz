@@ -116,8 +116,26 @@ public class HomeFragment extends Fragment {
     private void readPlants() {
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Plants");
-        assert firebaseUser != null;
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("Favourite");
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                favouriteList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Favourite favourite = snapshot.getValue(Favourite.class);
+                        favouriteList.add(favourite);
+                        System.out.println("data snap shot ===> " + snapshot);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -127,7 +145,6 @@ public class HomeFragment extends Fragment {
                     Plant plants = snapshot.getValue(Plant.class);
 
                     assert plants != null;
-                    assert firebaseUser != null;
                     plantList.add(plants);
                 }
 
@@ -142,26 +159,6 @@ public class HomeFragment extends Fragment {
 
         });
 
-        userRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                favouriteList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    if (snapshot != null) {
-//                        Favourite favourite = snapshot.getValue(Favourite.class);
-//                        favouriteList.add(favourite);
-                        System.out.println("data snap shot ===> " + snapshot);
-                    }
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
 
     }

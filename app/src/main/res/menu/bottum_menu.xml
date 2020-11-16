@@ -9,7 +9,7 @@
     <item
         android:id="@+id/bottom_action_add"
         android:title="@string/menu_addPlant_button"
-        android:icon="@drawable/button_add" />
+        android:icon="@drawable/camera_icon" />
 
     <item
         android:id="@+id/bottom_action_favourite"
