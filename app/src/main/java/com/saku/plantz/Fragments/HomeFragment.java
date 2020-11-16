@@ -129,6 +129,28 @@ public class HomeFragment extends Fragment {
 
                 }
 
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        plantList.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            Plant plants = snapshot.getValue(Plant.class);
+
+                            assert plants != null;
+                            plantList.add(plants);
+                        }
+
+                        plantAdapter = new PlantViewAdapter(getContext(), plantList, favouriteList);
+                        recyclerView.setAdapter(plantAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+                });
+
             }
 
             @Override
@@ -137,27 +159,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                plantList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Plant plants = snapshot.getValue(Plant.class);
 
-                    assert plants != null;
-                    plantList.add(plants);
-                }
-
-                plantAdapter = new PlantViewAdapter(getContext(), plantList, favouriteList);
-                recyclerView.setAdapter(plantAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-
-        });
 
 
 

@@ -114,7 +114,7 @@ public class PlantViewActivity extends AppCompatActivity {
                 String update_spread = spread.getText().toString();
                 String update_flowPeriod = flow_period.getText().toString();
 
-                if (TextUtils.isEmpty(update_plantName)) {
+                if (TextUtils.isEmpty(update_plantName)|| TextUtils.isEmpty(update_sciName) || TextUtils.isEmpty(update_family) || TextUtils.isEmpty(update_genus)) {
                     Toast.makeText(PlantViewActivity.this,"All fields are required",Toast.LENGTH_SHORT).show();
                 } else {
                     updatePlant(update_plantName,update_sciName,update_family,update_genus,update_height,update_spread,update_flowPeriod,plantPushId);

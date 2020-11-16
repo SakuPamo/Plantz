@@ -74,9 +74,12 @@ public class PlantViewAdapter extends RecyclerView.Adapter<PlantViewAdapter.View
             public void onClick(View view) {
                 final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid()).child("Favourite").child(plantGetList.getAdd_Id());
-                for (Favourite addId : favouriteList) {
-                    if (favouriteList != null && addId.getAdd_Id().equals(plantGetList.getAdd_Id()) && addId.getFlag().equals("1")) {
-                        userRef.removeValue();
+                if (favouriteList != null) {
+                    for (Favourite addId : favouriteList) {
+                        if (favouriteList != null && addId.getAdd_Id().equals(plantGetList.getAdd_Id()) && addId.getFlag().equals("1")) {
+                            userRef.removeValue();
+
+                        }
                     }
                 }
                 holder.favIcn.setVisibility(View.VISIBLE);

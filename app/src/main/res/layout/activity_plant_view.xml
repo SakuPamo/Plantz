@@ -45,7 +45,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Plant Name* : "
+                        android:text="Plant Name * : "
                         android:textStyle="bold" />
 
                     <com.rengwuxian.materialedittext.MaterialEditText
@@ -66,7 +66,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scientific Name : "
+                        android:text="Scientific Name * : "
                         android:textStyle="bold" />
 
                     <com.rengwuxian.materialedittext.MaterialEditText
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Family : "
+                        android:text="Family * : "
                         android:textStyle="bold" />
 
                     <com.rengwuxian.materialedittext.MaterialEditText
@@ -108,7 +108,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Genus : "
+                        android:text="Genus * : "
                         android:textStyle="bold" />
 
                     <com.rengwuxian.materialedittext.MaterialEditText

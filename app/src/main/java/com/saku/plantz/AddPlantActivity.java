@@ -88,8 +88,8 @@ public class AddPlantActivity extends AppCompatActivity {
                 final String spread_value = spread.getText().toString();
                 final String flowPeriod_value = flow_period.getText().toString();
 
-                if (TextUtils.isEmpty(plant_name)) {
-                    Toast.makeText(AddPlantActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(plant_name) || TextUtils.isEmpty(sci_name) || TextUtils.isEmpty(family_name) || TextUtils.isEmpty(genus_name)) {
+                    Toast.makeText(AddPlantActivity.this, "Please fill all required fields!", Toast.LENGTH_SHORT).show();
                 } else if (plantPushID == null) {
                     Toast.makeText(AddPlantActivity.this, "Please upload the Image!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -190,7 +190,7 @@ public class AddPlantActivity extends AppCompatActivity {
 
         reference.child("Plants").child(plantPushID).updateChildren(hashMap).addOnCompleteListener((task) -> {
             if (task.isSuccessful()) {
-                Toast.makeText(AddPlantActivity.this, "Plant add Successfull!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddPlantActivity.this, "Plant add Successful!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AddPlantActivity.this, MainActivity.class));
             } else {
                 Toast.makeText(AddPlantActivity.this, "Error!", Toast.LENGTH_SHORT).show();
