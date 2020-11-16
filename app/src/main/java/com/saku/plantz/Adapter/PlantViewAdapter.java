@@ -77,7 +77,10 @@ public class PlantViewAdapter extends RecyclerView.Adapter<PlantViewAdapter.View
                 if (favouriteList != null) {
                     for (Favourite addId : favouriteList) {
                         if (favouriteList != null && addId.getAdd_Id().equals(plantGetList.getAdd_Id()) && addId.getFlag().equals("1")) {
+//                            favouriteList.remove(addId);
+                            removeAt(position);
                             userRef.removeValue();
+
 
                         }
                     }
@@ -134,5 +137,11 @@ public class PlantViewAdapter extends RecyclerView.Adapter<PlantViewAdapter.View
             favIcn = itemView.findViewById(R.id.fav_icn);
             faved_Icn = itemView.findViewById(R.id.faved_icn);
         }
+    }
+
+    public void removeAt(int position) {
+        plantList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, plantList.size());
     }
 }
